@@ -8,12 +8,48 @@ on:
   - cron: "0 0 * * *"
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image:
+        - source: hello-world:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/hello-world:latest
+        - source: fauria/vsftpd:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vsftpd:latest
+        - source: atmoz/sftp:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/sftp:latest
+        - source: bytemark/webdav:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/webdav:latest
+        - source: dockurr/samba:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/samba:latest
+        - source: xhofe/alist:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/alist:latest
+        - source: itsthenetwork/nfs-server-alpine:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nfs-server-alpine:latest
+        - source: itzg/minecraft-server:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/minecraft-server:latest
+        - source: adguard/adguardhome:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/adguardhome:latest
+        - source: vaultwarden/server:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server:latest
+        - source: nginx:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:latest
+        - source: lanol/filecodebox:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/filecodebox:latest
+        - source: binwiederhier/ntfy:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/ntfy:latest
+        - source: homeassistant/home-assistant:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant:latest
+        - source: teamspeak:latest
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak:latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
     - name: Log in
       uses: docker/login-action@v3
@@ -22,5 +58,12 @@ jobs:
         username: ${{ vars.USERNAME }}
         password: ${{ secrets.TOKEN }}
 
-    - name: sh
-      run: /bin/bash docker.sh
+    - name: Build, tag, and push image
+      run: |
+        echo "Processing ${{ matrix.image.source }} -> ${{ matrix.image.target }}"
+        docker pull "${{ matrix.image.source }}"
+        docker tag "${{ matrix.image.source }}" "${{ matrix.image.target }}"
+        docker push "${{ matrix.image.target }}"
+        docker rmi -f "${{ matrix.image.source }}" "${{ matrix.image.target }}"
+        echo "Done with ${{ matrix.image.source }} -> ${{ matrix.image.target }}"
+        echo "-------------------------------------"
