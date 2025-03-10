@@ -13,36 +13,38 @@ jobs:
     strategy:
       matrix:
         image:
-        - source: hello-world:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/hello-world:latest
-        - source: fauria/vsftpd:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vsftpd:latest
-        - source: atmoz/sftp:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/sftp:latest
-        - source: bytemark/webdav:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/webdav:latest
-        - source: dockurr/samba:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/samba:latest
-        - source: xhofe/alist:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/alist:latest
-        - source: itsthenetwork/nfs-server-alpine:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nfs-server-alpine:latest
-        - source: itzg/minecraft-server:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/minecraft-server:latest
-        - source: adguard/adguardhome:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/adguardhome:latest
-        - source: vaultwarden/server:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server:latest
-        - source: nginx:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:latest
-        - source: lanol/filecodebox:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/filecodebox:latest
-        - source: binwiederhier/ntfy:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/ntfy:latest
-        - source: homeassistant/home-assistant:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant:latest
-        - source: teamspeak:latest
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak:latest
+        - source: hello-world
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/hello-world
+        - source: fauria/vsftpd
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vsftpd
+        - source: atmoz/sftp
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/sftp
+        - source: bytemark/webdav
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/webdav
+        - source: dockurr/samba
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/samba
+        - source: xhofe/alist
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/alist
+        - source: itsthenetwork/nfs-server-alpine
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nfs-server-alpine
+        - source: itzg/minecraft-server
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/minecraft-server
+        - source: adguard/adguardhome
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/adguardhome
+        - source: vaultwarden/server
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server
+        - source: nginx
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx
+        - source: nginx:stable-alpine
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:stable-alpine
+        - source: lanol/filecodebox
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/filecodebox
+        - source: binwiederhier/ntfy
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/ntfy
+        - source: homeassistant/home-assistant
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant
+        - source: teamspeak
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak
 
     steps:
     - name: Checkout code
