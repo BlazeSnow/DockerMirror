@@ -35,6 +35,8 @@ jobs:
           target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server
         - source: nginx
           target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx
+        - source: nginx:mainline-alpine
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:mainline-alpine
         - source: nginx:stable-alpine
           target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:stable-alpine
         - source: lanol/filecodebox
