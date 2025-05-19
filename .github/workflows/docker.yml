@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-  - cron: "0 0 * * *"
+  - cron: "0 16 * * *"
 
 jobs:
   sync-images:
@@ -54,9 +54,10 @@ jobs:
     - name: Log in to Alibaba Cloud Container Registry
       uses: docker/login-action@v3
       with:
-        registry: ${{ vars.REGISTRY }}
-        username: ${{ vars.USERNAME }}
+        registry: registry.cn-hangzhou.aliyuncs.com
+        username: BlazeSnow23
         password: ${{ secrets.TOKEN }}
+        logout: true
 
     - name: Pull, Tag, and Push Image
       run: |
