@@ -1,4 +1,4 @@
-name: 发布至阿里云Docker镜像服务
+name: Docker Mirror
 
 on:
   workflow_dispatch:
@@ -7,8 +7,12 @@ on:
   schedule:
   - cron: "0 16 * * *"
 
+env:
+  REGISTRYNAME: registry.cn-hangzhou.aliyuncs.com/blazesnow/
+  USERNAME: BlazeSnow23
+
 jobs:
-  sync-images:
+  sync:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -16,74 +20,59 @@ jobs:
       matrix:
         image:
         - source: hello-world
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/hello-world
+          target: hello-world
         - source: fauria/vsftpd
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vsftpd
+          target: vsftpd
         - source: atmoz/sftp
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/sftp
+          target: sftp
         - source: bytemark/webdav
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/webdav
+          target: webdav
         - source: dockurr/samba
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/samba
+          target: samba
         - source: xhofe/alist
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/alist
+          target: alist
         - source: itsthenetwork/nfs-server-alpine
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nfs-server-alpine
+          target: nfs-server-alpine
         - source: itzg/minecraft-server
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/minecraft-server
+          target: minecraft-server
         - source: adguard/adguardhome
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/adguardhome
+          target: adguardhome
         - source: vaultwarden/server
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server
+          target: vaultwarden_server
         - source: nginx
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx
+          target: nginx
         - source: nginx:mainline-alpine
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:mainline-alpine
+          target: nginx:mainline-alpine
         - source: nginx:stable-alpine
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/nginx:stable-alpine
+          target: nginx:stable-alpine
         - source: lanol/filecodebox
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/filecodebox
+          target: filecodebox
         - source: binwiederhier/ntfy
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/ntfy
+          target: ntfy
         - source: homeassistant/home-assistant
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant
+          target: home-assistant
         - source: teamspeak
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak
+          target: teamspeak
         - source: mysql:8.0.42
-          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/mysql:8.0.42
+          target: mysql:8.0.42
 
     steps:
-    - name: Log in to Alibaba Cloud Container Registry
+    - name: login
       uses: docker/login-action@v3
       with:
-        registry: registry.cn-hangzhou.aliyuncs.com
-        username: BlazeSnow23
+        registry: ${{ env.REGISTRYNAME }}
+        username: ${{ env.USERNAME }}
         password: ${{ secrets.TOKEN }}
         logout: true
 
-    - name: Pull, Tag, and Push Image
-      run: |
-        set -e
-        SOURCE_IMAGE="${{ matrix.image.source }}"
-        TARGET_IMAGE="${{ matrix.image.target }}"
+    - name: docker pull
+      run: docker pull ${{ matrix.image.source }}
 
-        echo "-------------------------------------"
-        echo "Syncing image: ${SOURCE_IMAGE} -> ${TARGET_IMAGE}"
+    - name: docker tag
+      run: docker tag ${{ matrix.image.source }} ${{ env.REGISTRYNAME }}${{ matrix.image.target }}
 
-        echo "Pulling source image: ${SOURCE_IMAGE}"
-        docker pull "${SOURCE_IMAGE}"
+    - name: docker push
+      run: docker push ${{ env.REGISTRYNAME }}${{ matrix.image.target }}
 
-        echo "Tagging image: ${SOURCE_IMAGE} as ${TARGET_IMAGE}"
-        docker tag "${SOURCE_IMAGE}" "${TARGET_IMAGE}"
-
-        echo "Pushing target image: ${TARGET_IMAGE}"
-        docker push "${TARGET_IMAGE}"
-
-        echo "Cleaning up local images: ${SOURCE_IMAGE}, ${TARGET_IMAGE}"
-        docker rmi "${SOURCE_IMAGE}" "${TARGET_IMAGE}" || echo "Local cleanup failed for ${SOURCE_IMAGE}, continuing..."
-
-        echo "Successfully synced: ${SOURCE_IMAGE} -> ${TARGET_IMAGE}"
-        echo "-------------------------------------"
-      env:
-        SOURCE_IMAGE: ${{ matrix.image.source }}
-        TARGET_IMAGE: ${{ matrix.image.target }}
+    - name: docker rmi
+      run: docker rmi ${{ matrix.image.source }} ${{ env.REGISTRYNAME }}${{ matrix.image.target }}
