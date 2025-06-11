@@ -49,6 +49,8 @@ jobs:
           target: registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant
         - source: teamspeak
           target: registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak
+        - source: mysql:8.0.42
+          target: registry.cn-hangzhou.aliyuncs.com/blazesnow/mysql:8.0.42
 
     steps:
     - name: Log in to Alibaba Cloud Container Registry
