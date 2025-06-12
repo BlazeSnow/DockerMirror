@@ -55,6 +55,8 @@ jobs:
           target: teamspeak
         - source: mysql:8.0.42
           target: mysql:8.0.42
+        - source: certbot/certbot
+          target: certbot
 
     steps:
     - name: login
