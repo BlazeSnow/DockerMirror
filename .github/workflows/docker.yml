@@ -29,8 +29,6 @@ jobs:
           target: webdav
         - source: dockurr/samba
           target: samba
-        - source: xhofe/alist
-          target: alist
         - source: itsthenetwork/nfs-server-alpine
           target: nfs-server-alpine
         - source: itzg/minecraft-server
