@@ -51,6 +51,8 @@ jobs:
           target: home-assistant:stable
         - source: teamspeak
           target: teamspeak
+        - source: deluan/navidrome
+          target: navidrome
         - source: mysql:8.0.42
           target: mysql:8.0.42
         - source: certbot/certbot
