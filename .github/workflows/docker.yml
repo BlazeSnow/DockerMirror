@@ -47,6 +47,8 @@ jobs:
           target: ntfy
         - source: homeassistant/home-assistant
           target: home-assistant
+        - source: homeassistant/home-assistant:stable
+          target: home-assistant:stable
         - source: teamspeak
           target: teamspeak
         - source: mysql:8.0.42
