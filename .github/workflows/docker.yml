@@ -17,46 +17,52 @@ jobs:
       max-parallel: 1
       matrix:
         image:
-        - source: hello-world
-          target: hello-world
-        - source: fauria/vsftpd
-          target: vsftpd
-        - source: atmoz/sftp
-          target: sftp
-        - source: bytemark/webdav
-          target: webdav
-        - source: dockurr/samba
-          target: samba
-        - source: itsthenetwork/nfs-server-alpine
-          target: nfs-server-alpine
-        - source: itzg/minecraft-server
-          target: minecraft-server
-        - source: adguard/adguardhome
-          target: adguardhome
-        - source: vaultwarden/server
-          target: vaultwarden_server
-        - source: nginx
-          target: nginx
+        - source: hello-world:latest
+          target: hello-world:latest
+        - source: fauria/vsftpd:latest
+          target: vsftpd:latest
+        - source: atmoz/sftp:latest
+          target: sftp:latest
+        - source: bytemark/webdav:latest
+          target: webdav:latest
+        - source: dockurr/samba:latest
+          target: samba:latest
+        - source: itsthenetwork/nfs-server-alpine:latest
+          target: nfs-server-alpine:latest
+        - source: itzg/minecraft-server:latest
+          target: minecraft-server:latest
+        - source: adguard/adguardhome:latest
+          target: adguardhome:latest
+        - source: vaultwarden/server:latest
+          target: vaultwarden_server:latest
+        - source: nginx:latest
+          target: nginx:latest
         - source: nginx:mainline-alpine
           target: nginx:mainline-alpine
         - source: nginx:stable-alpine
           target: nginx:stable-alpine
-        - source: lanol/filecodebox
-          target: filecodebox
-        - source: binwiederhier/ntfy
-          target: ntfy
-        - source: homeassistant/home-assistant
-          target: home-assistant
+        - source: lanol/filecodebox:latest
+          target: filecodebox:latest
+        - source: binwiederhier/ntfy:latest
+          target: ntfy:latest
+        - source: homeassistant/home-assistant:latest
+          target: home-assistant:latest
         - source: homeassistant/home-assistant:stable
           target: home-assistant:stable
-        - source: teamspeak
-          target: teamspeak
-        - source: deluan/navidrome
-          target: navidrome
+        - source: teamspeak:latest
+          target: teamspeak:latest
+        - source: deluan/navidrome:latest
+          target: navidrome:latest
+        - source: portainer/portainer-ce:alpine
+          target: portainer-ce:alpine
+        - source: portainer/agent:alpine
+          target: portainer-agent:alpine
+        - source: busybox:latest
+          target: busybox:latest
         - source: mysql:8.0.42
           target: mysql:8.0.42
-        - source: certbot/certbot
-          target: certbot
+        - source: certbot/certbot:latest
+          target: certbot:latest
 
     steps:
     - name: login
