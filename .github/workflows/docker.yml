@@ -63,6 +63,8 @@ jobs:
           target: mysql:8.0.42
         - source: certbot/certbot:latest
           target: certbot:latest
+        - source: caddy:alpine
+          target: caddy:alpine
 
     steps:
     - name: login
