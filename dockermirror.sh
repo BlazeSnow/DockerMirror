@@ -2,23 +2,30 @@
 
 set -e
 
-SOURCE="${SOURCE}"
-TARGET="${TARGET}"
+# 镜像数量
+image_count=$(jq '. | length' images.json)
 
-echo "Pulling image $SOURCE"
+# 循环处理
+for i in $(seq 0 $((image_count - 1))); do
 
-docker pull $SOURCE
+    # 设定变量
+    SOURCE="docker.io/$(jq -r ".[$i].source" images.json)"
+    TARGET="$REGISTRY/$NAMESPACE/$(jq -r ".[$i].target" images.json)"
 
-echo "Tagging $SOURCE to $TARGET"
+    # 拉取镜像
+    echo "⬇️ 拉取镜像"
+    docker pull "$SOURCE"
 
-docker tag $SOURCE $TARGET
+    # 重命名镜像
+    echo "🔄 重命名镜像"
+    docker tag "$SOURCE" "$TARGET"
 
-echo "Pushing $TARGET"
+    # 推送镜像
+    echo "⬆️ 推送镜像"
+    docker push "$TARGET"
 
-docker push $TARGET
+    # 清理镜像
+    echo "🧹 清理镜像"
+    docker system prune -a -f
 
-echo "Cleaning"
-
-docker system prune -a -f
-
-echo "Done"
+done
