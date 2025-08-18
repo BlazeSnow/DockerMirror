@@ -20,3 +20,5 @@ docker push $TARGET
 echo "Cleaning"
 
 docker system prune -a -f
+
+echo "Done"
