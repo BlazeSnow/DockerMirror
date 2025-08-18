@@ -3,10 +3,10 @@
 set -e
 
 # 镜像数量
-image_count=$(jq '. | length' images.json)
+count=$(jq '. | length' images.json)
 
 # 循环处理
-for i in $(seq 0 $((image_count - 1))); do
+for i in $(seq 0 $((count - 1))); do
 
     # 设定变量
     SOURCE="docker.io/$(jq -r ".[$i].source" images.json)"
