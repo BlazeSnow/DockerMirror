@@ -2,20 +2,20 @@
 
 set -e
 
-source="${source}"
-target="${REGISTRY}/${NAMESPACE}/${target}"
+SOURCE="${SOURCE}"
+TARGET="${TARGET}"
 
-echo "Pulling image $source"
+echo "Pulling image $SOURCE"
 
-docker pull $source
+docker pull $SOURCE
 
-echo "Tagging $source to $target"
+echo "Tagging $SOURCE to $TARGET"
 
-docker tag $source $target
+docker tag $SOURCE $TARGET
 
-echo "Pushing $target"
+echo "Pushing $TARGET"
 
-docker push $target
+docker push $TARGET
 
 echo "Cleaning"
 
