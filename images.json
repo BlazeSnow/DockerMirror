@@ -1,0 +1,74 @@
+[
+    {
+        "source": "hello-world",
+        "target": "hello-world"
+    },
+    {
+        "source": "fauria/vsftpd",
+        "target": "vsftpd"
+    },
+    {
+        "source": "atmoz/sftp",
+        "target": "sftp"
+    },
+    {
+        "source": "bytemark/webdav",
+        "target": "webdav"
+    },
+    {
+        "source": "dockurr/samba",
+        "target": "samba"
+    },
+    {
+        "source": "itsthenetwork/nfs-server-alpine",
+        "target": "nfs-server-alpine"
+    },
+    {
+        "source": "itzg/minecraft-server",
+        "target": "minecraft-server"
+    },
+    {
+        "source": "adguard/adguardhome",
+        "target": "adguardhome"
+    },
+    {
+        "source": "vaultwarden/server",
+        "target": "vaultwarden_server"
+    },
+    {
+        "source": "caddy:alpine",
+        "target": "caddy:alpine"
+    },
+    {
+        "source": "lanol/filecodebox",
+        "target": "filecodebox"
+    },
+    {
+        "source": "binwiederhier/ntfy",
+        "target": "ntfy"
+    },
+    {
+        "source": "homeassistant/home-assistant:stable",
+        "target": "home-assistant:stable"
+    },
+    {
+        "source": "teamspeak",
+        "target": "teamspeak"
+    },
+    {
+        "source": "deluan/navidrome",
+        "target": "navidrome"
+    },
+    {
+        "source": "portainer/portainer-ce:alpine",
+        "target": "portainer-ce:alpine"
+    },
+    {
+        "source": "portainer/agent:alpine",
+        "target": "portainer-agent:alpine"
+    },
+    {
+        "source": "busybox",
+        "target": "busybox"
+    }
+]
