@@ -12,6 +12,14 @@ for i in $(seq 0 $((count - 1))); do
     SOURCE="docker.io/$(jq -r ".[$i].source" images.json)"
     TARGET="$REGISTRY/$NAMESPACE/$(jq -r ".[$i].target" images.json)"
 
+    # 分隔符
+    echo ""
+    echo "----------------------------------------"
+    echo "源镜像 $SOURCE"
+    echo "目的地 $TARGET"
+    echo "----------------------------------------"
+    echo ""
+
     # 拉取镜像
     echo "⬇️ 拉取 $SOURCE"
     docker pull --quiet "$SOURCE"
