@@ -2,15 +2,18 @@
 
 set -e
 
-set SOURCE=${{ matrix.image.source }}
-SET TARGET=${{ matrix.image.target }}
-SET REGISTRY=${{ env.REGISTRY }}
-SET NAMESPACE=${{ env.NAMESPACE }}
+echo "Pulling image $source"
 
-docker pull ${SOURCE}
+docker pull $source
 
-docker tag ${SOURCE} ${REGISTRY}${NAMESPACE}${TARGET}
+echo "Tagging $source to $REGISTRY$NAMESPACE$target"
 
-docker push ${REGISTRY}${NAMESPACE}${TARGET}
+docker tag $source $REGISTRY$NAMESPACE$target
+
+echo "Pushing $REGISTRY$NAMESPACE$target"
+
+docker push $REGISTRY$NAMESPACE$target
+
+echo "Cleaning"
 
 docker system prune -a -f
