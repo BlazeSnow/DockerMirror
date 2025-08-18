@@ -72,6 +72,9 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
+    - name: chmod
+      run: chmod +x ./dockermirror.sh
+
     - name: docker pull, tag, push and clean
       env:
         SOURCE: ${{ matrix.image.source }}
