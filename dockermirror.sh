@@ -1,18 +1,21 @@
-# /bin/bash
+#!/bin/bash
 
 set -e
+
+source="${source}"
+target="${REGISTRY}/${NAMESPACE}/${target}"
 
 echo "Pulling image $source"
 
 docker pull $source
 
-echo "Tagging $source to $REGISTRY$NAMESPACE$target"
+echo "Tagging $source to $target"
 
-docker tag $source $REGISTRY$NAMESPACE$target
+docker tag $source $target
 
-echo "Pushing $REGISTRY$NAMESPACE$target"
+echo "Pushing $target"
 
-docker push $REGISTRY$NAMESPACE$target
+docker push $target
 
 echo "Cleaning"
 
