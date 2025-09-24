@@ -36,5 +36,5 @@ jobs:
 
     - name: docker pull, tag, push and clean
       env:
-        HEAD: registry.cn-hangzhou.aliyuncs.com/blazesnow/
+        HEAD: registry.cn-hangzhou.aliyuncs.com/blazesnow
       run: ./dockermirror.sh
