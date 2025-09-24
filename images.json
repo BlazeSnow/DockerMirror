@@ -1,63 +1,71 @@
 [
     {
-        "source": "hello-world",
-        "target": "hello-world"
+        "source": "busybox:latest",
+        "target": "busybox:latest"
     },
     {
-        "source": "fauria/vsftpd",
-        "target": "vsftpd"
+        "source": "fauria/vsftpd:latest",
+        "target": "vsftpd:latest"
     },
     {
-        "source": "atmoz/sftp",
-        "target": "sftp"
+        "source": "atmoz/sftp:latest",
+        "target": "sftp:latest"
     },
     {
-        "source": "bytemark/webdav",
-        "target": "webdav"
+        "source": "bytemark/webdav:latest",
+        "target": "webdav:latest"
     },
     {
-        "source": "dockurr/samba",
-        "target": "samba"
+        "source": "dockurr/samba:latest",
+        "target": "samba:latest"
     },
     {
-        "source": "itsthenetwork/nfs-server-alpine",
-        "target": "nfs-server-alpine"
+        "source": "itsthenetwork/nfs-server-alpine:latest",
+        "target": "nfs-server-alpine:latest"
     },
     {
-        "source": "itzg/minecraft-server",
-        "target": "minecraft-server"
+        "source": "snowdreamtech/frps:alpine",
+        "target": "frps:alpine"
     },
     {
-        "source": "adguard/adguardhome",
-        "target": "adguardhome"
+        "source": "snowdreamtech/frpc:alpine",
+        "target": "frpc:alpine"
     },
     {
-        "source": "vaultwarden/server",
-        "target": "vaultwarden_server"
+        "source": "itzg/minecraft-server:latest",
+        "target": "minecraft-server:latest"
+    },
+    {
+        "source": "adguard/adguardhome:latest",
+        "target": "adguardhome:latest"
+    },
+    {
+        "source": "vaultwarden/server:alpine",
+        "target": "vaultwarden_server:alpine"
     },
     {
         "source": "caddy:alpine",
         "target": "caddy:alpine"
     },
     {
-        "source": "lanol/filecodebox",
-        "target": "filecodebox"
+        "source": "lanol/filecodebox:latest",
+        "target": "filecodebox:latest"
     },
     {
-        "source": "binwiederhier/ntfy",
-        "target": "ntfy"
+        "source": "binwiederhier/ntfy:latest",
+        "target": "ntfy:latest"
     },
     {
         "source": "homeassistant/home-assistant:stable",
         "target": "home-assistant:stable"
     },
     {
-        "source": "teamspeak",
-        "target": "teamspeak"
+        "source": "teamspeak:latest",
+        "target": "teamspeak:latest"
     },
     {
-        "source": "deluan/navidrome",
-        "target": "navidrome"
+        "source": "deluan/navidrome:latest",
+        "target": "navidrome:latest"
     },
     {
         "source": "portainer/portainer-ce:alpine",
@@ -68,7 +76,15 @@
         "target": "portainer-agent:alpine"
     },
     {
-        "source": "busybox",
-        "target": "busybox"
+        "source": "gitea/gitea:latest",
+        "target": "gitea:latest"
+    },
+    {
+        "source": "mysql:lts",
+        "target": "mysql:lts"
+    },
+    {
+        "source": "blazesnow/caddy:edgeone-alpine",
+        "target": "caddy:edgeone-alpine"
     }
 ]
