@@ -9,7 +9,7 @@ on:
   - cron: "0 16 * * *"
 
 jobs:
-  sync:
+  mirror:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -21,15 +21,6 @@ jobs:
         registry: registry.cn-hangzhou.aliyuncs.com
         username: BlazeSnow23
         password: ${{ secrets.AlibabaTOKEN }}
-
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Install jq
-      run: sudo apt-get update && sudo apt-get install -y jq
 
     - name: chmod
       run: chmod +x ./dockermirror.sh

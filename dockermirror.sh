@@ -35,5 +35,7 @@ for i in $(seq 0 $((count - 1))); do
 	# 清理镜像
 	echo "🧹 清理镜像"
 	docker system prune -a -f >/dev/null
+	echo ""
+	echo ""
 
 done
