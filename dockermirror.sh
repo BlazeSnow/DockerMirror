@@ -13,7 +13,7 @@ for i in $(seq 0 $((count - 1))); do
 	TARGET="$HEAD/$(jq -r ".[$i].target" images.json)"
 
 	# 分隔符
-	echo ""
+	echo " "
 	echo "----------------------------------------"
 	echo "源镜像：$SOURCE"
 	echo "目的地：$TARGET"
@@ -35,7 +35,7 @@ for i in $(seq 0 $((count - 1))); do
 	# 清理镜像
 	echo "🧹 清理镜像"
 	docker system prune -a -f >/dev/null
-	echo ""
-	echo ""
+	echo " "
+	echo " "
 
 done
