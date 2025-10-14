@@ -1,94 +1,117 @@
 [
     {
         "source": "busybox:latest",
-        "target": "busybox:latest"
+        "target": "busybox:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "fauria/vsftpd:latest",
-        "target": "vsftpd:latest"
+        "target": "vsftpd:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "atmoz/sftp:latest",
-        "target": "sftp:latest"
+        "target": "sftp:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "bytemark/webdav:latest",
-        "target": "webdav:latest"
+        "target": "webdav:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "dockurr/samba:latest",
-        "target": "samba:latest"
+        "target": "samba:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "itsthenetwork/nfs-server-alpine:latest",
-        "target": "nfs-server-alpine:latest"
+        "target": "nfs-server-alpine:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "snowdreamtech/frps:alpine",
-        "target": "frps:alpine"
+        "target": "frps:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "snowdreamtech/frpc:alpine",
-        "target": "frpc:alpine"
+        "target": "frpc:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "itzg/minecraft-server:latest",
-        "target": "minecraft-server:latest"
+        "target": "minecraft-server:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "adguard/adguardhome:latest",
-        "target": "adguardhome:latest"
+        "target": "adguardhome:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "vaultwarden/server:alpine",
-        "target": "vaultwarden_server:alpine"
+        "target": "vaultwarden_server:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "caddy:alpine",
-        "target": "caddy:alpine"
+        "target": "caddy:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "lanol/filecodebox:latest",
-        "target": "filecodebox:latest"
+        "target": "filecodebox:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "binwiederhier/ntfy:latest",
-        "target": "ntfy:latest"
+        "target": "ntfy:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "homeassistant/home-assistant:stable",
-        "target": "home-assistant:stable"
+        "target": "home-assistant:stable",
+        "platform": "linux/amd64"
     },
     {
         "source": "teamspeak:latest",
-        "target": "teamspeak:latest"
+        "target": "teamspeak:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "deluan/navidrome:latest",
-        "target": "navidrome:latest"
+        "target": "navidrome:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "portainer/portainer-ce:alpine",
-        "target": "portainer-ce:alpine"
+        "target": "portainer-ce:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "portainer/agent:alpine",
-        "target": "portainer-agent:alpine"
+        "target": "portainer-agent:alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "gitea/gitea:latest",
-        "target": "gitea:latest"
+        "target": "gitea:latest",
+        "platform": "linux/amd64"
     },
     {
         "source": "mysql:lts",
-        "target": "mysql:lts"
+        "target": "mysql:lts",
+        "platform": "linux/amd64"
     },
     {
         "source": "blazesnow/caddy:edgeone-alpine",
-        "target": "caddy:edgeone-alpine"
+        "target": "caddy:edgeone-alpine",
+        "platform": "linux/amd64"
     },
     {
         "source": "proxysql/proxysql:latest",
-        "target": "proxysql:latest"
+        "target": "proxysql:latest",
+        "platform": "linux/amd64"
     }
 ]
