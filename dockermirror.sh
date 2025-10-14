@@ -12,14 +12,17 @@ for i in $(seq 0 $((count - 1))); do
 	SOURCE="$(jq -r ".[$i].source" images.json)"
 	TARGET="$HEAD/$(jq -r ".[$i].target" images.json)"
 
-	# 分隔符
-	echo "----------------------------------------"
-	echo "源镜像：$SOURCE"
-	echo "目的地：$TARGET"
-
 	# 使用crane获取digest
 	SOURCE_digest=$(crane digest "$SOURCE" 2>/dev/null || true)
 	TARGET_digest=$(crane digest "$TARGET" 2>/dev/null || true)
+
+	# 分隔符
+	echo "----------------------------------------"
+	echo "源镜像: $SOURCE"
+	echo "digest: $SOURCE_digest"
+
+	echo "目的地: $TARGET"
+	echo "digest: $TARGET_digest"
 
 	# 相同则跳过拉取和推送
 	if [[ -n "$SOURCE_digest" && -n "$TARGET_digest" && "$SOURCE_digest" == "$TARGET_digest" ]]; then
