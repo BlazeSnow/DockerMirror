@@ -36,7 +36,7 @@ for i in $(seq 0 $((count - 1))); do
 
 	# 相同则跳过拉取和推送
 	if [[ -n "$SOURCE_digest" && -n "$TARGET_digest" && "$SOURCE_digest" == "$TARGET_digest" ]]; then
-		echo "✅ 源和目的地内容一致 (digest: $SOURCE_digest)，跳过拉取和推送"
+		echo "✅ 源和目的地内容一致，跳过拉取和推送"
 		continue
 	fi
 
