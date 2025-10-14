@@ -41,6 +41,6 @@ for i in $(seq 0 $((count - 1))); do
 
 	# 清理镜像
 	echo "🧹 清理镜像"
-	docker rmi "$SOURCE" "$TARGET" 2>/dev/null || true
+	docker rmi "$SOURCE" "$TARGET" >/dev/null
 
 done
