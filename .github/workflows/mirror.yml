@@ -15,6 +15,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
+    - name: Set up Docker
+      uses: docker/setup-docker-action@v4
+
     - name: Setup Crane
       uses: imjasonh/setup-crane@v0.4
 
