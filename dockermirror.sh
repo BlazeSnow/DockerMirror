@@ -23,8 +23,8 @@ for i in $(seq 0 $((count - 1))); do
 	fi
 
 	# 使用crane获取digest
-	SOURCE_digest=$(crane digest --platform="$PLATFORM" "$SOURCE" &>/dev/null || true)
-	TARGET_digest=$(crane digest --platform="$PLATFORM" "$TARGET" &>/dev/null || true)
+	SOURCE_digest=$(crane digest --platform="$PLATFORM" "$SOURCE" 2>/dev/null || true)
+	TARGET_digest=$(crane digest --platform="$PLATFORM" "$TARGET" 2>/dev/null || true)
 
 	# 分隔符
 	echo "----------------------------------------"
