@@ -113,5 +113,10 @@
         "source": "proxysql/proxysql:latest",
         "target": "proxysql:latest",
         "platform": "linux/amd64"
+    },
+    {
+        "source": "alpine:latest",
+        "target": "alpine:latest",
+        "platform": "linux/amd64"
     }
 ]
