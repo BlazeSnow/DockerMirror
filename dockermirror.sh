@@ -34,23 +34,16 @@ for i in $(seq 0 $((count - 1))); do
 	echo "目的地: $TARGET"
 	echo "digest: $TARGET_digest"
 
-	# 相同则跳过拉取和推送
+	# 相同则跳过
 	if [[ -n "$SOURCE_digest" && -n "$TARGET_digest" && "$SOURCE_digest" == "$TARGET_digest" ]]; then
-		echo "✅ 源和目的地内容一致，跳过拉取和推送"
+		echo "✅ 源和目的地内容一致，跳过同步"
 		continue
 	fi
 
-	# 拉取镜像
-	echo "⬇️ 拉取镜像"
-	docker pull --quiet --platform="$PLATFORM" "$SOURCE"
-
-	# 重命名镜像
-	echo "🔄 重命名镜像"
-	docker tag "$SOURCE" "$TARGET" >/dev/null
-
-	# 推送镜像
-	echo "⬆️ 推送镜像"
-	docker push --quiet "$TARGET"
+	# 同步镜像
+	echo "🔄 同步镜像"
+	crane copy --platform="$PLATFORM" "$SOURCE" "$TARGET"
+	echo "✅ 同步完成"
 
 	# 清理镜像
 	echo "🧹 清理镜像"
