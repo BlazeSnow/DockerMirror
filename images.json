@@ -118,5 +118,10 @@
         "source": "alpine:latest",
         "target": "alpine:latest",
         "platform": "linux/amd64"
+    },
+    {
+        "source": "openlistteam/openlist:latest",
+        "target": "openlist:latest",
+        "platform": "linux/amd64"
     }
 ]
