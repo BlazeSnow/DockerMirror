@@ -126,7 +126,7 @@
     },
     {
         "source": "kindest/node:v1.34.0",
-        "target": "node:v1.34.0",
+        "target": "kindest_node:v1.34.0",
         "platform": "linux/amd64"
     }
 ]
