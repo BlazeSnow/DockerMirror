@@ -123,5 +123,10 @@
         "source": "openlistteam/openlist:latest",
         "target": "openlist:latest",
         "platform": "linux/amd64"
+    },
+    {
+        "source": "kindest/node:v1.34.0",
+        "target": "node:v1.34.0",
+        "platform": "linux/amd64"
     }
 ]
