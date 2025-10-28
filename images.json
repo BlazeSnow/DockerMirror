@@ -128,5 +128,10 @@
         "source": "kindest/node:v1.34.0",
         "target": "kindest_node:v1.34.0",
         "platform": "linux/amd64"
+    },
+    {
+        "source": "metacubex/mihomo:latest",
+        "target": "mihomo:latest",
+        "platform": "linux/amd64"
     }
 ]
