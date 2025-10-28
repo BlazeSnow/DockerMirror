@@ -5,11 +5,31 @@ set -e
 # 头部路径
 HEAD="$HEAD"
 
+# 检查头部路径
+if [[ -z "$HEAD" ]]; then
+	echo "❌ 错误：HEAD未设置"
+	exit 1
+fi
+
+# 检查images.json文件
+if [[ ! -f images.json ]]; then
+	echo "❌ 错误：images.json不存在"
+	exit 1
+fi
+
 # 镜像数量
 count=$(jq '. | length' images.json)
 
 # 默认平台
 DEFAULT_PLATFORM="linux/amd64"
+
+# 检查target有无重复
+duplicate_targets=$(jq -r '.[].target' images.json | sort | uniq -d)
+if [[ -n "$duplicate_targets" ]]; then
+	echo "❌ 错误：target存在重复"
+	echo "$duplicate_targets"
+	exit 1
+fi
 
 # 循环处理
 for i in $(seq 0 $((count - 1))); do
@@ -42,11 +62,10 @@ for i in $(seq 0 $((count - 1))); do
 
 	# 同步镜像
 	echo "🔄 同步镜像"
-	crane copy --platform="$PLATFORM" "$SOURCE" "$TARGET"
+	if ! crane copy --platform="$PLATFORM" "$SOURCE" "$TARGET"; then
+		echo "❌ 镜像同步失败"
+		exit 1
+	fi
 	echo "✅ 同步完成"
-
-	# 清理镜像
-	echo "🧹 清理镜像"
-	docker rmi "$SOURCE" "$TARGET" &>/dev/null || true
 
 done

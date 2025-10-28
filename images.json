@@ -1,5 +1,10 @@
 [
     {
+        "source": "hello-world:latest",
+        "target": "hello-world:latest",
+        "platform": "linux/amd64"
+    },
+    {
         "source": "busybox:latest",
         "target": "busybox:latest",
         "platform": "linux/amd64"
@@ -132,6 +137,16 @@
     {
         "source": "metacubex/mihomo:latest",
         "target": "mihomo:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "ghcr.io/metacubex/metacubexd:latest",
+        "target": "metacubexd:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "metacubex/subconverter:latest",
+        "target": "subconverter:latest",
         "platform": "linux/amd64"
     }
 ]
