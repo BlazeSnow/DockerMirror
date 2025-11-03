@@ -23,15 +23,18 @@ jobs:
 
     - name: Test files
       run: |
-        docker run --rm imageporter/imageporter:dev \
+        docker run --rm \
         -v ${{ github.workspace }}:/app \
-        --entrypoint sh -c "cat /app/images.json"
+        --entrypoint sh \
+        imageporter/imageporter:dev \
+        -c "cat /app/images.json"
 
     - name: docker run imageporter
       run: |
-        docker run --rm imageporter/imageporter:dev \
+        docker run --rm \
         -v "${{ github.workspace }}:/app" \
         -e "RUN_ONCE=true" \
         -e "TARGET_REGISTRY=${{ vars.REGISTRY }}" \
         -e "TARGET_USERNAME=${{ vars.USERNAME }}" \
-        -e "TARGET_PASSWORD=${{ secrets.PASSWORD }}"
+        -e "TARGET_PASSWORD=${{ secrets.PASSWORD }}" \
+        imageporter/imageporter:dev
