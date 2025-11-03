@@ -15,11 +15,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    - name: Cat images.json
+    - name: List files
       run: ls -l ${{ github.workspace }}
 
     - name: Docker pull
       run: docker pull imageporter/imageporter:dev
+
+    - name: Test files
+      run: |
+        docker run --rm imageporter/imageporter:dev \
+        -v ${{ github.workspace }}:/app \
+        --entrypoint sh -c "cat /app/images.json"
 
     - name: docker run imageporter
       run: |
