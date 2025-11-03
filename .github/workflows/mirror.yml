@@ -21,7 +21,7 @@ jobs:
     - name: docker run imageporter
       run: |
         docker run --rm imageporter/imageporter:dev \
-        -v images.json:/app/images.json:ro \
+        -v ${{ github.workspace }}/images.json:/app/images.json:ro \
         -e RUN_ONCE=true \
         -e TARGET_REGISTRY="${{ vars.REGISTRY }}" \
         -e TARGET_USERNAME="${{ vars.USERNAME }}" \
