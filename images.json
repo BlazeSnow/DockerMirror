@@ -1,0 +1,157 @@
+[
+    {
+        "source": "hello-world:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/hello-world:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "busybox:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/busybox:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "fauria/vsftpd:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/vsftpd:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "atmoz/sftp:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/sftp:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "bytemark/webdav:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/webdav:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "dockurr/samba:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/samba:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "itsthenetwork/nfs-server-alpine:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/nfs-server-alpine:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "snowdreamtech/frps:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/frps:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "snowdreamtech/frpc:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/frpc:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "itzg/minecraft-server:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/minecraft-server:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "adguard/adguardhome:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/adguardhome:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "vaultwarden/server:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/vaultwarden_server:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "caddy:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/caddy:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "lanol/filecodebox:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/filecodebox:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "binwiederhier/ntfy:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/ntfy:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "homeassistant/home-assistant:stable",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/home-assistant:stable",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "teamspeak:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/teamspeak:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "deluan/navidrome:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/navidrome:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "portainer/portainer-ce:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/portainer-ce:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "portainer/agent:alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/portainer-agent:alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "gitea/gitea:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/gitea:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "mysql:lts",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/mysql:lts",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "blazesnow/caddy:edgeone-alpine",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/caddy:edgeone-alpine",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "proxysql/proxysql:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/proxysql:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "alpine:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/alpine:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "openlistteam/openlist:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/openlist:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "kindest/node:v1.34.0",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/kindest_node:v1.34.0",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "metacubex/mihomo:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/mihomo:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "ghcr.io/metacubex/metacubexd:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/metacubexd:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "metacubex/subconverter:latest",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/subconverter:latest",
+        "platform": "linux/amd64"
+    },
+    {
+        "source": "imageporter/imageporter:dev",
+        "target": "registry.cn-hangzhou.aliyuncs.com/blazesnow/imageporter:dev",
+        "platform": "linux/amd64"
+    }
+]
