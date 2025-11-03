@@ -15,23 +15,25 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    - name: Docker pull
-      run: docker pull imageporter/imageporter:dev
+    - name: Setup Crane
+      uses: imjasonh/setup-crane@v0.4
 
-    - name: Cat images.json
-      run: |
-        docker run --rm \
-        -v "${{ github.workspace }}/images.json:/app/images.json:ro" \
-        --entrypoint sh \
-        imageporter/imageporter:dev \
-        -c "cat /app/images.json"
+    - name: Docker Login
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ vars.REGISTRY }}
+        username: ${{ vars.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
 
-    - name: docker run imageporter
-      run: |
-        docker run --rm \
-        -v "${{ github.workspace }}/images.json:/app/images.json:ro" \
-        -e "RUN_ONCE=true" \
-        -e "TARGET_REGISTRY=${{ vars.REGISTRY }}" \
-        -e "TARGET_USERNAME=${{ vars.USERNAME }}" \
-        -e "TARGET_PASSWORD=${{ secrets.PASSWORD }}" \
-        imageporter/imageporter:dev
+    - name: Docker Login
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Chmod
+      run: chmod +x imageporter.sh
+
+    - name: Run Imageporter
+      run: ./imageporter.sh
