@@ -15,14 +15,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
+    - name: Cat images.json
+      run: cat "${{ github.workspace }}/images.json"
+
     - name: Docker pull
       run: docker pull imageporter/imageporter:dev
 
     - name: docker run imageporter
       run: |
         docker run --rm imageporter/imageporter:dev \
-        -v ${{ github.workspace }}/images.json:/app/images.json:ro \
-        -e RUN_ONCE=true \
-        -e TARGET_REGISTRY="${{ vars.REGISTRY }}" \
-        -e TARGET_USERNAME="${{ vars.USERNAME }}" \
-        -e TARGET_PASSWORD="${{ secrets.PASSWORD }}" \
+        -v "${{ github.workspace }}/images.json:/app/images.json:ro" \
+        -e "RUN_ONCE=true" \
+        -e "TARGET_REGISTRY=${{ vars.REGISTRY }}" \
+        -e "TARGET_USERNAME=${{ vars.USERNAME }}" \
+        -e "TARGET_PASSWORD=${{ secrets.PASSWORD }}"
