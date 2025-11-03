@@ -5,12 +5,6 @@ set -e
 # 镜像数量
 count=$(jq '. | length' images.json)
 
-# 登录源仓库和目标仓库
-if [ -n "$SOURCE_USERNAME" ] && [ -n "$SOURCE_PASSWORD" ]; then
-	crane auth login --username "$SOURCE_USERNAME" --password "$SOURCE_PASSWORD" "$SOURCE_REGISTRY"
-fi
-crane auth login --username "$TARGET_USERNAME" --password "$TARGET_PASSWORD" "$TARGET_REGISTRY"
-
 # 循环处理
 for i in $(seq 0 $((count - 1))); do
 
