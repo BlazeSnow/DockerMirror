@@ -15,20 +15,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    - name: Setup Crane
-      uses: imjasonh/setup-crane@v0.4
+    - name: Docker pull
+      run: docker pull imagemirror/imagemirror:dev
 
-    - name: login
-      uses: docker/login-action@v3
-      with:
-        registry: registry.cn-hangzhou.aliyuncs.com
-        username: BlazeSnow23
-        password: ${{ secrets.AlibabaTOKEN }}
-
-    - name: chmod
-      run: chmod +x ./dockermirror.sh
-
-    - name: docker pull, tag, push and clean
-      env:
-        HEAD: registry.cn-hangzhou.aliyuncs.com/blazesnow
-      run: ./dockermirror.sh
+    - name: docker run imagemirror
+      run: |
+        docker run --rm imagemirror/imagemirror:dev \
+        -v images.json:/app/images.json:ro \
+        -e RUN_ONCE=true \
+        -e TARGET_REGISTRY="${{ vars.REGISTRY }}" \
+        -e TARGET_USERNAME="${{ vars.USERNAME }}" \
+        -e TARGET_PASSWORD="${{ secrets.PASSWORD }}" \
